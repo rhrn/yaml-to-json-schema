@@ -1,6 +1,6 @@
 ### Examples
 
-#### [asyncapi/sample.yaml](asyncapi/sample.yaml)
+#### [sample.yaml](sample.yaml)
 
 ##### Command
 ```shell

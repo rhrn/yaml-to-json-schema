@@ -33,8 +33,8 @@ npx yaml-to-json-schema examples/openapi/petstore-expanded.yaml | npx quicktype 
 ```
 
 ## Output examples with cases
-- [examples/asyncapi/sample.yaml](https://github.com/rhrn/yaml-to-json-schema/examples/asyncapi)
-- [examples/openapi/petstore-expanded.yaml](https://github.com/rhrn/yaml-to-json-schema/examples/openapi)
+- [examples/asyncapi/sample.yaml](https://github.com/rhrn/yaml-to-json-schema/tree/master/examples/asyncapi)
+- [examples/openapi/petstore-expanded.yaml](https://github.com/rhrn/yaml-to-json-schema/tree/master/examples/openapi)
 
 ## Useful tools
 - [https://quicktype.io/](https://quicktype.io/) - Convert JSON into gorgeous, typesafe code in any language
