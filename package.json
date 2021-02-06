@@ -1,0 +1,53 @@
+{
+  "name": "yaml-to-json-schema",
+  "version": "1.0.0",
+  "description": "Generate json schema from yaml (swagger, openapi, asyncapi)",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "bin": {
+    "yaml-to-json-schema": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev:watch": "nodemon --exec 'npm run build:js' -e ts -w src",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "prepublish": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yaml",
+    "json",
+    "schema",
+    "swagger",
+    "openapi",
+    "asyncapi"
+  ],
+  "author": "@rhrn",
+  "license": "BSD",
+  "dependencies": {
+    "js-yaml": "^4.0.0"
+  },
+  "homepage": "https://github.com/rhrn/yaml-to-json-schema",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhrn/yaml-to-json-schema.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@commitlint/cli": "^11.0.0",
+    "@types/js-yaml": "^4.0.0",
+    "@types/node": "^14.14.22",
+    "husky": "^4.3.8",
+    "nodemon": "^2.0.7",
+    "quicktype": "^15.0.258",
+    "typescript": "^4.1.3",
+    "typescript-coverage-report": "^0.4.0"
+  }
+}
