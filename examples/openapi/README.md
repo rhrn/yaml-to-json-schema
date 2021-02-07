@@ -106,3 +106,21 @@ export interface Pet {
     id:   number;
 }
 ```
+##### Ajv example
+```shell
+npx yaml-to-json-schema examples/openapi/petstore-expanded.yaml > generated.json
+```
+#### An validation js module
+```js
+import Ajv from 'ajv'
+import Schemas from 'generated.json'
+
+const ajv = new Ajv({ allErrors: true })
+
+for(const schemaName in Schemas.definitions) {
+  ajv.addSchema(Schemas.definitions[schemaName], '#definitions/' + schemaName)
+}
+
+export const NewPetValidator = ajv.compile(Schemas.definitions.NewPet)
+export const PetValidator = ajv.compile(Schemas.definitions.Pet)
+```

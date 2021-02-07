@@ -32,9 +32,10 @@ npx yaml-to-json-schema examples/asyncapi/sample.yaml | npx quicktype --src-lang
 npx yaml-to-json-schema examples/openapi/petstore-expanded.yaml | npx quicktype --src-lang schema --lang ts --just-types --acronym-style original -t PetstoreExpanded
 ```
 
-## Output examples with cases
+## Output examples with use cases
 - [examples/asyncapi/sample.yaml](https://github.com/rhrn/yaml-to-json-schema/tree/master/examples/asyncapi)
 - [examples/openapi/petstore-expanded.yaml](https://github.com/rhrn/yaml-to-json-schema/tree/master/examples/openapi)
 
 ## Useful tools
 - [https://quicktype.io/](https://quicktype.io/) - Convert JSON into gorgeous, typesafe code in any language
+- [https://ajv.js.org/](https://ajv.js.org/) - JSON Schema Validator

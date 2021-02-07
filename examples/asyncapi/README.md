@@ -191,3 +191,22 @@ export interface UserCreate {
     username:   string;
 }
 ```
+
+##### Ajv example
+```shell
+npx yaml-to-json-schema examples/asyncapi/sample.yaml > generated.json
+```
+#### An validation js module
+```js
+import Ajv from 'ajv'
+import Schemas from 'generated.json'
+
+const ajv = new Ajv({ allErrors: true })
+
+for(const schemaName in Schemas.definitions) {
+  ajv.addSchema(Schemas.definitions[schemaName], '#definitions/' + schemaName)
+}
+
+export const UserValidator = ajv.compile(Schemas.definitions.user)
+export const UserCreateValidator = ajv.compile(Schemas.definitions.userCreate)
+```
