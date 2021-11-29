@@ -120,7 +120,7 @@ const prepare = async (doc: Doc, src: Src): Promise<JsonSchema> => {
   const definitions: Definitions = {}
   const properties: Properties = {}
 
-  const { schemas }: { schemas: Schemas } = doc.components
+  const { schemas }: { schemas: Schemas } = doc.components ?? {}
 
   basedir = dirname(src)
 

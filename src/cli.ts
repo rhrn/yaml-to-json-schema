@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { cwd } from 'process'
 import { resolve } from 'path'
 
 import { parse } from './index'
@@ -7,7 +8,7 @@ const args = process.argv.splice(2)
 
 ;(async () => {
 
-  const file = args[0]
+  const file = args[0] || ''
 
   if (!file) {
      console.log(`
@@ -18,7 +19,7 @@ const args = process.argv.splice(2)
 
   try {
 
-    const input: string = resolve(file)
+    const input: string = resolve(cwd(), file)
 
     const schema = await parse({ input })
     console.log(JSON.stringify(schema, null, 2))
