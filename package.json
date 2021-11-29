@@ -1,6 +1,6 @@
 {
   "name": "yaml-to-json-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate json schema from yaml (swagger, openapi, asyncapi)",
   "main": "dist/index.js",
   "types": "dist/types.d.ts",
