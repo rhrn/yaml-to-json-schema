@@ -1,5 +1,7 @@
 # yaml-to-json-schema 
-> Generate json schema from yaml (openapi, swagger, asyncapi...)
+> Generate json schema from yaml `components` schema (openapi, swagger, asyncapi...)
+
+_Note: this tool does not infer the schema from a general yaml file._
 
 ## Support
   - [Openapi/Swagger](https://swagger.io/docs/specification/about/)
