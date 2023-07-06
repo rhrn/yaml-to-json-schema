@@ -53,14 +53,14 @@ npx yaml-to-json-schema examples/asyncapi/sample.yaml
       "properties": {
         "id": {
           "description": "User Id",
-          "$ref": "#definitions/id"
+          "$ref": "#/definitions/id"
         },
         "full_name": {
           "description": "User full name",
           "type": "string"
         },
         "username": {
-          "$ref": "#definitions/username"
+          "$ref": "#/definitions/username"
         }
       }
     },
@@ -75,7 +75,7 @@ npx yaml-to-json-schema examples/asyncapi/sample.yaml
           "type": "string"
         },
         "username": {
-          "$ref": "#definitions/username"
+          "$ref": "#/definitions/username"
         }
       }
     },
@@ -98,35 +98,35 @@ npx yaml-to-json-schema examples/asyncapi/sample.yaml
           ]
         },
         "datetime": {
-          "$ref": "#definitions/datetime"
+          "$ref": "#/definitions/datetime"
         }
       }
     }
   },
   "properties": {
     "id": {
-      "$ref": "#definitions/id"
+      "$ref": "#/definitions/id"
     },
     "username": {
-      "$ref": "#definitions/username"
+      "$ref": "#/definitions/username"
     },
     "datetime": {
-      "$ref": "#definitions/datetime"
+      "$ref": "#/definitions/datetime"
     },
     "MQTTQoSHeader": {
-      "$ref": "#definitions/MQTTQoSHeader"
+      "$ref": "#/definitions/MQTTQoSHeader"
     },
     "MQTTRetainHeader": {
-      "$ref": "#definitions/MQTTRetainHeader"
+      "$ref": "#/definitions/MQTTRetainHeader"
     },
     "user": {
-      "$ref": "#definitions/user"
+      "$ref": "#/definitions/user"
     },
     "userCreate": {
-      "$ref": "#definitions/userCreate"
+      "$ref": "#/definitions/userCreate"
     },
     "signup": {
-      "$ref": "#definitions/signup"
+      "$ref": "#/definitions/signup"
     }
   }
 }
@@ -204,7 +204,7 @@ import Schemas from 'generated.json'
 const ajv = new Ajv({ allErrors: true })
 
 for(const schemaName in Schemas.definitions) {
-  ajv.addSchema(Schemas.definitions[schemaName], '#definitions/' + schemaName)
+  ajv.addSchema(Schemas.definitions[schemaName], '#/definitions/' + schemaName)
 }
 
 export const UserValidator = ajv.compile(Schemas.definitions.user)

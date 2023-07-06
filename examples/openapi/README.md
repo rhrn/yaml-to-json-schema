@@ -14,7 +14,7 @@ npx yaml-to-json-schema examples/openapi/petstore-expanded.yaml
     "Pet": {
       "allOf": [
         {
-          "$ref": "#definitions/NewPet"
+          "$ref": "#/definitions/NewPet"
         },
         {
           "type": "object",
@@ -63,13 +63,13 @@ npx yaml-to-json-schema examples/openapi/petstore-expanded.yaml
   },
   "properties": {
     "Pet": {
-      "$ref": "#definitions/Pet"
+      "$ref": "#/definitions/Pet"
     },
     "NewPet": {
-      "$ref": "#definitions/NewPet"
+      "$ref": "#/definitions/NewPet"
     },
     "Error": {
-      "$ref": "#definitions/Error"
+      "$ref": "#/definitions/Error"
     }
   }
 }
@@ -118,7 +118,7 @@ import Schemas from 'generated.json'
 const ajv = new Ajv({ allErrors: true })
 
 for(const schemaName in Schemas.definitions) {
-  ajv.addSchema(Schemas.definitions[schemaName], '#definitions/' + schemaName)
+  ajv.addSchema(Schemas.definitions[schemaName], '#/definitions/' + schemaName)
 }
 
 export const NewPetValidator = ajv.compile(Schemas.definitions.NewPet)
