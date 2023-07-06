@@ -65,7 +65,7 @@ const fixAddons = (doc: Prop, src: Src): void => {
 const fixProperty = (prop: Prop, src: Src): Prop => {
 
   if (prop.$ref) {
-    prop.$ref = '#definitions/' + getKey(prop.$ref, src)
+    prop.$ref = '#/definitions/' + getKey(prop.$ref, src)
   } else if (prop.type === 'object') {
     fixRef(prop, src)
   } else if (prop.type === 'array') {
@@ -131,7 +131,7 @@ const prepare = async (doc: Doc, src: Src): Promise<JsonSchema> => {
   for(const key in schemas) {
     definitions[key] = await loadSchema(schemas[key], src)
     // @ts-ignore // @TODO fix this issue. Error TS2740: Type '{ $ref: string; }'
-    properties[key] = { $ref: '#definitions/' + key }
+    properties[key] = { $ref: '#/definitions/' + key }
   }
 
   return {
